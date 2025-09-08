@@ -21,7 +21,7 @@ It allows users to dictate text rather than typing, making your site more access
 = Features =
 
 * Adds a dictate button to WordPress forms
-* Configure which form types show the dictate button (comments, search, Contact Form 7)
+* Configure which form types show the dictate button
 * Uses the dictate-button package in exclusive mode
 * Admin settings page for easy configuration
 * Lightweight implementation using official CDN

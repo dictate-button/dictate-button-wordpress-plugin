@@ -16,7 +16,7 @@ Adds speech-to-text dictation functionality to WordPress forms via dictate-butto
 The Dictate Button for WordPress plugin enables speech-to-text functionality for various form types on your site through the dictate-button.io service. 
 It allows users to dictate text rather than typing, making your site more accessible and user-friendly.
 
-**Please note:** This plugin requires site registration on https://dictate-button.io.
+**Please note:** This plugin requires site registration on [dictate-button.io](https://dictate-button.io).
 
 = Features =
 
@@ -36,18 +36,18 @@ It allows users to dictate text rather than typing, making your site more access
 = Requirements =
 
 * A modern browser that supports the Web Speech API (Chrome, Edge, Safari, Firefox)
-* Site registration on https://dictate-button.io
+* Site registration on [dictate-button.io](https://dictate-button.io)
 
 == Installation ==
 
-1. Sign up and register your site on https://dictate-button.io
+1. Sign up and register your site on [dictate-button.io](https://dictate-button.io)
 2. Upload the `dictate-button` folder to the `/wp-content/plugins/` directory
 3. Activate the plugin through the 'Plugins' menu in WordPress
 4. Go to Settings > Dictate Button to configure which form types should show the dictate button
 
 == Third-Party Libraries ==
 
-The plugin includes the https://www.npmjs.com/package/dictate-button library of Apache License 2.0.
+The plugin includes the [dictate-button](https://www.npmjs.com/package/dictate-button) library of Apache License 2.0.
 
 == Frequently Asked Questions ==
 
@@ -57,7 +57,7 @@ The plugin works with modern browsers that support the Web Speech API, including
 
 = Do I need to sign up on dictate-button.io? =
 
-Yes, you need to sign up and register your site on https://dictate-button.io for the plugin to work properly.
+Yes, you need to sign up and register your site on [dictate-button.io](https://dictate-button.io) for the plugin to work properly.
 
 = Which form types are supported? =
 

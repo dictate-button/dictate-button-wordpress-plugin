@@ -41,14 +41,14 @@ class Dictate_Button_Settings
 
         add_settings_section(
             'dictate_button_domain_verification',
-            __('Domain Verification', 'dictate-button'),
+            __('Site Registration', 'dictate-button'),
             array($this, 'domain_verification_section_callback'),
             'dictate_button_settings'
         );
 
         add_settings_field(
             'domain_verified',
-            __('Domain Registration', 'dictate-button'),
+            __('Site Registration', 'dictate-button'),
             array($this, 'domain_verified_field_callback'),
             'dictate_button_settings',
             'dictate_button_domain_verification'
@@ -111,7 +111,7 @@ class Dictate_Button_Settings
      */
     public function domain_verification_section_callback()
     {
-        echo '<p>' . esc_html__('The dictate button requires site registration on dash.dictate-button.io. If you have already registered and verified your site, please check the box below.', 'dictate-button') . '</p>';
+        echo '<p>' . esc_html__('The dictate button requires site registration on dictate-button.io. If you have already registered and verified your site, please check the box below.', 'dictate-button') . '</p>';
     }
 
     /**

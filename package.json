@@ -1,0 +1,14 @@
+{
+  "name": "dictate-button-bundle",
+  "version": "1.0.0",
+  "main": "assets/js/dictate-button-bundle.js",
+  "scripts": {
+    "build": "vite build"
+  },
+  "dependencies": {
+    "dictate-button": "^1.4.1"
+  },
+  "devDependencies": {
+    "vite": "^7.1.5"
+  }
+}

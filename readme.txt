@@ -22,9 +22,8 @@ It allows users to dictate text rather than typing, making your site more access
 
 * Adds a dictate button to WordPress forms
 * Configure which form types show the dictate button
-* Uses the dictate-button package in exclusive mode
+* Uses the dictate-button component in exclusive mode
 * Admin settings page for easy configuration
-* Lightweight implementation using official CDN
 * Works with modern browsers supporting Web Speech API
 
 = Supported Form Types =

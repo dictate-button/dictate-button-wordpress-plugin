@@ -1,7 +1,7 @@
 === Dictate Button for WordPress ===
 Contributors: kkomelin
 Donate link: https://github.com/dictate-button/dictate-button-wordpress-plugin
-Tags: speech-to-text, dictate, dictation, dictate-button, dictate-button-for-wordpress, dictate-button-plugin, dictate-button-wordpress, dictate-button-wordpress-plugin
+Tags: voice input, speech-to-text, transcription, dictation, dictate-button
 Requires at least: 5.0
 Tested up to: 6.4
 Requires PHP: 7.4

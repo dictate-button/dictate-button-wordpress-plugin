@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Dictate Button for WordPress
- * Description: Adds a dictate button to various form types using the dictate-button npm package in exclusive mode.
+ * Description: Adds a dictate button to various form types using the dictate-button npm package and the dictate-button.io service.
  * Version: 1.0.0
  * Author: Konstantin Komelin (@kkomelin)
  * Text Domain: dictate-button

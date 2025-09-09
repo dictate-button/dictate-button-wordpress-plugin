@@ -76,6 +76,18 @@ The plugin automatically adds the necessary `data-dictate-button-on` attribute t
 2. Dictate button appearing on a comment form
 ![Dictate button appearing on a comment form](./assets/img/comment-form-dictate-button.png)
 
+== Development ==
+
+The plugin development repository is available on [GitHub](https://github.com/dictate-button/dictate-button-wordpress-plugin).
+
+We locally bundle the JS code from Apache-2.0-licensed [dictate-button](https://www.npmjs.com/package/dictate-button) library to the `assets/js` folder 
+this way:
+
+```
+pnpm install
+pnpm run build
+```
+
 == Changelog ==
 
 = 1.0.0 =

@@ -16,7 +16,7 @@ Adds speech-to-text dictation functionality to WordPress forms via dictate-butto
 The Dictate Button for WordPress plugin enables speech-to-text functionality for various form types on your site through the dictate-button.io service. 
 It allows users to dictate text rather than typing, making your site more accessible and user-friendly.
 
-**Please note:** This plugin requires site registration on [dictate-button.io](https://dictate-button.io).
+**Please note:** This plugin requires an account and site registration on [dictate-button.io](https://dictate-button.io).
 
 = Features =
 

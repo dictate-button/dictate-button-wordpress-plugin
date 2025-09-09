@@ -1,14 +1,14 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  build: {
-    outDir: "assets/js",
-    emptyOutDir: true,
-    lib: {
-      entry: "src/main.js",
-      name: "DictateButton",
-      fileName: () => "dictate-button-bundle.js",
-      formats: ["es"],
-    },
-  },
+	build: {
+		outDir: 'assets/js',
+		emptyOutDir: true,
+		lib: {
+			entry: 'src/main.js',
+			name: 'DictateButtonBundle',
+			fileName: () => 'dictate-button-bundle.js',
+			formats: ['es'],
+		},
+	},
 });

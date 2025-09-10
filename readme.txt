@@ -3,7 +3,7 @@ Contributors: kkomelin
 Donate link: https://github.com/dictate-button/dictate-button-wordpress-plugin
 Tags: voice input, speech-to-text, transcription, dictation, dictate-button
 Requires at least: 5.0
-Tested up to: 6.4
+Tested up to: 6.8
 Requires PHP: 7.4
 Stable tag: 1.0.0
 License: Apache-2.0

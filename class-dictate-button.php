@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name: Dictate Button for WordPress
- * Description: Adds a dictate button to various form types using the dictate-button npm package and the dictate-button.io service.
+ * Plugin Name: Dictate Button
+ * Description: Adds speech-to-text dictation functionality to WordPress forms via dictate-button.io.
  * Version: 1.0.0
  * Author: Konstantin Komelin (@kkomelin)
  * Text Domain: dictate-button

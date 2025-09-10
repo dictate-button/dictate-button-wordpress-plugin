@@ -6,8 +6,8 @@ Requires at least: 5.0
 Tested up to: 6.4
 Requires PHP: 7.4
 Stable tag: 1.0.0
-License: GPLv2 or later
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
+License: Apache-2.0
+License URI: https://www.apache.org/licenses/LICENSE-2.0
 
 Adds speech-to-text dictation functionality to WordPress forms via dictate-button.io, making your site more accessible with voice input capabilities.
 

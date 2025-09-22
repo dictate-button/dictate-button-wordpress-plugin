@@ -142,6 +142,7 @@ class Dictate_Button_Settings {
 			'comments'       => __( 'Comment forms', 'dictate-button' ),
 			'search'         => __( 'Search forms', 'dictate-button' ),
 			'contact_form_7' => __( 'Contact Form 7', 'dictate-button' ),
+			'admin_post_edit' => __( 'Admin post edit page', 'dictate-button' ),
 		);
 
 		foreach ( $form_types as $id => $label ) {
@@ -172,6 +173,7 @@ class Dictate_Button_Settings {
 			'comments',
 			'search',
 			'contact_form_7',
+			'admin_post_edit',
 		);
 
 		foreach ( $form_types as $type ) {

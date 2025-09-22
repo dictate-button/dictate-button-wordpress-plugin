@@ -33,6 +33,11 @@ class Dictate_Button {
 		// Enqueue scripts and styles.
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
+		// Enqueue scripts for admin if enabled.
+		if ( Dictate_Button_Settings::get_option( 'admin_post_edit' ) === 'on' ) {
+			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
+		}
+
 		// Add dictate button to comment forms if enabled.
 		if ( Dictate_Button_Settings::get_option( 'comments' ) === 'on' ) {
 			add_filter( 'comment_form_defaults', array( $this, 'add_dictate_button_to_comment_form' ) );
@@ -67,6 +72,20 @@ class Dictate_Button {
 		if ( $should_load ) {
 			$this->register_dictate_button_scripts();
 		}
+	}
+
+	/**
+	 * Enqueue scripts and styles for admin pages.
+	 *
+	 * @param string $hook The current admin page.
+	 */
+	public function enqueue_admin_scripts( $hook ) {
+		// Only load on post edit pages.
+		if ( ! in_array( $hook, array( 'post.php', 'post-new.php' ), true ) ) {
+			return;
+		}
+
+		$this->register_dictate_button_scripts();
 	}
 
 	/**

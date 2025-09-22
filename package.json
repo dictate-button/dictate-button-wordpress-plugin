@@ -6,7 +6,7 @@
     "build": "vite build"
   },
   "dependencies": {
-    "dictate-button": "^1.4.1"
+    "dictate-button": "file:/srv/sites/my/dictate-button"
   },
   "devDependencies": {
     "vite": "^7.1.5"

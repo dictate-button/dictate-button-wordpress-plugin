@@ -1,5 +1,5 @@
 === Dictate Button ===
-Contributors: kkomelin
+Contributors: dictatebutton, kkomelin
 Donate link: https://github.com/dictate-button/dictate-button-wordpress-plugin
 Tags: voice input, speech-to-text, transcription, dictation, dictate-button
 Requires at least: 5.0

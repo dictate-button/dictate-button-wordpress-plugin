@@ -29,6 +29,9 @@ class Dictate_Button_Settings {
 
 		// Add settings page to admin menu.
 		add_action( 'admin_menu', array( $this, 'add_settings_page' ) );
+
+		// Add settings link to plugins page.
+		add_filter( 'plugin_action_links', array( $this, 'add_settings_link' ) );
 	}
 
 	/**
@@ -196,6 +199,18 @@ class Dictate_Button_Settings {
 		}
 
 		return isset( $options[ $key ] ) ? $options[ $key ] : $default_value;
+	}
+
+	/**
+	 * Add settings link to plugin page.
+	 *
+	 * @param array $links Array of plugin action links.
+	 * @return array Modified array of plugin action links.
+	 */
+	public function add_settings_link( $links ) {
+		$settings_link = '<a href="' . menu_page_url( 'dictate-button-settings', false ) . '">' . esc_html__( 'Settings', 'dictate-button' ) . '</a>';
+		array_unshift( $links, $settings_link );
+		return $links;
 	}
 }
 

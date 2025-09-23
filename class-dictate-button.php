@@ -4,7 +4,8 @@
  * Description: Adds speech-to-text dictation functionality to WordPress forms via dictate-button.io.
  * Tags: voice input, speech-to-text, transcription, dictation, dictate-button
  * Version: 1.0.0
- * Author: Dictate Button (@dictatebutton), Konstantin Komelin (@kkomelin)
+ * Author: Dictate Button
+ * Author URI: https://dictate-button.io/
  * Text Domain: dictate-button
  * License: Apache-2.0
  *

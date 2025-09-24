@@ -53,7 +53,7 @@ When requested by the user, it records the user's voice and sends the recording 
 Please note that the Dictate Button service is still in Beta, so we may store some of your data temporary, 
 such as your browser user agent and the voice recording with transcription, for the sake of testing and improving the service.
 
-Currently this service is provided "AS IS" and free of charge up to certain limits: 
+Currently this service is provided "AS IS" and free of charge (up to certain limits): 
 [terms of service](https://dictate-button.io/docs/tos), [privacy policy](](https://dictate-button.io/docs/privacy).
 
 == Third-Party Libraries ==

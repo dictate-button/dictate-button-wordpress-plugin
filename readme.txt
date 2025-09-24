@@ -53,9 +53,8 @@ It records the user's voice and sends it to the Dictate Button API for transcrip
 Please note that the Dictate Button service is still in Beta, so we may store some of your data temporary, 
 such as your browser user agent, the site language and the transcription itself, for the only sake of improving the service.
 
-Currently this service is provided by a private person "Konstantin Komelin" AS IS: terms of use, privacy policy.
-!!! todo: add ToC and Privacy link. !!!
-
+Currently this service is provided by a private person Konstantin Komelin free of charge and "AS IS": 
+[terms of service](https://dictate-button.io/docs/tos), [privacy policy](](https://dictate-button.io/docs/privacy).
 
 == Third-Party Libraries ==
 

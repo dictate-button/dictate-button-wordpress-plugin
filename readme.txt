@@ -44,6 +44,19 @@ It allows users to dictate text rather than type it, making your site more acces
 3. Activate the plugin through the 'Plugins' menu in WordPress
 4. Go to Settings > Dictate Button to configure which form types should show the dictate button
 
+== External Services ==
+
+This plugin performs audio transcription through the Dictate Button API.
+
+It records the user's voice and sends it to the Dictate Button API for transcription.
+
+Please note that the Dictate Button service is still in Beta, so we may store some of your data temporary, 
+such as your browser user agent, the site language and the transcription itself, for the only sake of improving the service.
+
+Currently this service is provided by a private person "Konstantin Komelin" AS IS: terms of use, privacy policy.
+!!! todo: add ToC and Privacy link. !!!
+
+
 == Third-Party Libraries ==
 
 The plugin includes the [dictate-button](https://www.npmjs.com/package/dictate-button) library of Apache License 2.0.

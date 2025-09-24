@@ -48,12 +48,12 @@ It allows users to dictate text rather than type it, making your site more acces
 
 This plugin performs audio transcription through the Dictate Button API.
 
-It records the user's voice and sends it to the Dictate Button API for transcription.
+When requested by the user, it records the user's voice and sends the recording to the Dictate Button API for transcription.
 
 Please note that the Dictate Button service is still in Beta, so we may store some of your data temporary, 
-such as your browser user agent, the site language and the transcription itself, for the only sake of improving the service.
+such as your browser user agent and the voice recording with transcription, for the sake of testing and improving the service.
 
-Currently this service is provided by a private person Konstantin Komelin free of charge and "AS IS": 
+Currently this service is provided "AS IS" and free of charge up to certain limits: 
 [terms of service](https://dictate-button.io/docs/tos), [privacy policy](](https://dictate-button.io/docs/privacy).
 
 == Third-Party Libraries ==

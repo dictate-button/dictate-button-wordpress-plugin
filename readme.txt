@@ -1,5 +1,5 @@
 === Dictate Button ===
-Contributors: kkomelin
+Contributors: dictatebutton, kkomelin
 Donate link: https://github.com/dictate-button/dictate-button-wordpress-plugin
 Tags: voice input, speech-to-text, transcription, dictation, dictate-button
 Requires at least: 5.0
@@ -43,6 +43,18 @@ It allows users to dictate text rather than type it, making your site more acces
 2. Upload the `dictate-button` folder to the `/wp-content/plugins/` directory
 3. Activate the plugin through the 'Plugins' menu in WordPress
 4. Go to Settings > Dictate Button to configure which form types should show the dictate button
+
+== External Services ==
+
+This plugin performs audio transcription through the Dictate Button API.
+
+When requested by the user, it records the user's voice and sends the recording to the Dictate Button API for transcription.
+
+Please note that the Dictate Button service is still in Beta, so we may store some of your data temporary, 
+such as your browser user agent and the voice recording with transcription, for the sake of testing and improving the service.
+
+Currently this service is provided "AS IS" and free of charge (up to certain limits): 
+[terms of service](https://dictate-button.io/docs/tos), [privacy policy](](https://dictate-button.io/docs/privacy).
 
 == Third-Party Libraries ==
 

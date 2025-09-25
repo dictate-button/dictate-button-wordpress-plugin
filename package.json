@@ -9,6 +9,6 @@
     "dictate-button": "file:/srv/sites/my/dictate-button"
   },
   "devDependencies": {
-    "vite": "^7.1.5"
+    "vite": "^7.1.7"
   }
 }

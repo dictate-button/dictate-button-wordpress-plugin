@@ -1,472 +1,474 @@
-const we = (e, t) => e === t, z = {
-  equals: we
+const kt = (t, e) => t === e, P = {
+  equals: kt
 };
-let Se = he;
-const x = 1, R = 2, ce = {
+let xt = vt;
+const k = 1, z = 2, dt = {
   owned: null,
   cleanups: null,
   context: null,
   owner: null
 };
 var y = null;
-let J = null, g = null, b = null, C = null, q = 0;
-function ke(e, t) {
-  const n = g, r = y, o = e.length === 0, i = t === void 0 ? r : t, l = o ? ce : {
+let H = null, g = null, h = null, S = null, q = 0;
+function Et(t, e) {
+  const n = g, r = y, o = t.length === 0, i = e === void 0 ? r : e, a = o ? dt : {
     owned: null,
     cleanups: null,
     context: i ? i.context : null,
     owner: i
-  }, s = o ? e : () => e(() => K(() => T(l)));
-  y = l, g = null;
+  }, s = o ? t : () => t(() => Q(() => T(a)));
+  y = a, g = null;
   try {
-    return j(s, !0);
+    return O(s, !0);
   } finally {
     g = n, y = r;
   }
 }
-function ue(e, t) {
-  t = t ? Object.assign({}, z, t) : z;
+function ft(t, e) {
+  e = e ? Object.assign({}, P, e) : P;
   const n = {
-    value: e,
+    value: t,
     observers: null,
     observerSlots: null,
-    comparator: t.equals || void 0
-  }, r = (o) => (typeof o == "function" && (o = o(n.value)), fe(n, o));
-  return [de.bind(n), r];
+    comparator: e.equals || void 0
+  }, r = (o) => (typeof o == "function" && (o = o(n.value)), gt(n, o));
+  return [pt.bind(n), r];
 }
-function B(e, t, n) {
-  const r = pe(e, t, !1, x);
+function B(t, e, n) {
+  const r = ht(t, e, !1, k);
   I(r);
 }
-function Ce(e, t, n) {
-  n = n ? Object.assign({}, z, n) : z;
-  const r = pe(e, t, !0, 0);
-  return r.observers = null, r.observerSlots = null, r.comparator = n.equals || void 0, I(r), de.bind(r);
+function At(t, e, n) {
+  n = n ? Object.assign({}, P, n) : P;
+  const r = ht(t, e, !0, 0);
+  return r.observers = null, r.observerSlots = null, r.comparator = n.equals || void 0, I(r), pt.bind(r);
 }
-function K(e) {
-  if (g === null) return e();
-  const t = g;
+function Q(t) {
+  if (g === null) return t();
+  const e = g;
   g = null;
   try {
-    return e();
+    return t();
   } finally {
-    g = t;
+    g = e;
   }
 }
-function de() {
+function pt() {
   if (this.sources && this.state)
-    if (this.state === x) I(this);
+    if (this.state === k) I(this);
     else {
-      const e = b;
-      b = null, j(() => D(this), !1), b = e;
+      const t = h;
+      h = null, O(() => D(this), !1), h = t;
     }
   if (g) {
-    const e = this.observers ? this.observers.length : 0;
-    g.sources ? (g.sources.push(this), g.sourceSlots.push(e)) : (g.sources = [this], g.sourceSlots = [e]), this.observers ? (this.observers.push(g), this.observerSlots.push(g.sources.length - 1)) : (this.observers = [g], this.observerSlots = [g.sources.length - 1]);
+    const t = this.observers ? this.observers.length : 0;
+    g.sources ? (g.sources.push(this), g.sourceSlots.push(t)) : (g.sources = [this], g.sourceSlots = [t]), this.observers ? (this.observers.push(g), this.observerSlots.push(g.sources.length - 1)) : (this.observers = [g], this.observerSlots = [g.sources.length - 1]);
   }
   return this.value;
 }
-function fe(e, t, n) {
-  let r = e.value;
-  return (!e.comparator || !e.comparator(r, t)) && (e.value = t, e.observers && e.observers.length && j(() => {
-    for (let o = 0; o < e.observers.length; o += 1) {
-      const i = e.observers[o], l = J && J.running;
-      l && J.disposed.has(i), (l ? !i.tState : !i.state) && (i.pure ? b.push(i) : C.push(i), i.observers && be(i)), l || (i.state = x);
+function gt(t, e, n) {
+  let r = t.value;
+  return (!t.comparator || !t.comparator(r, e)) && (t.value = e, t.observers && t.observers.length && O(() => {
+    for (let o = 0; o < t.observers.length; o += 1) {
+      const i = t.observers[o], a = H && H.running;
+      a && H.disposed.has(i), (a ? !i.tState : !i.state) && (i.pure ? h.push(i) : S.push(i), i.observers && yt(i)), a || (i.state = k);
     }
-    if (b.length > 1e6)
-      throw b = [], new Error();
-  }, !1)), t;
+    if (h.length > 1e6)
+      throw h = [], new Error();
+  }, !1)), e;
 }
-function I(e) {
-  if (!e.fn) return;
-  T(e);
-  const t = q;
-  xe(e, e.value, t);
+function I(t) {
+  if (!t.fn) return;
+  T(t);
+  const e = q;
+  $t(t, t.value, e);
 }
-function xe(e, t, n) {
+function $t(t, e, n) {
   let r;
   const o = y, i = g;
-  g = y = e;
+  g = y = t;
   try {
-    r = e.fn(t);
-  } catch (l) {
-    return e.pure && (e.state = x, e.owned && e.owned.forEach(T), e.owned = null), e.updatedAt = n + 1, ve(l);
+    r = t.fn(e);
+  } catch (a) {
+    return t.pure && (t.state = k, t.owned && t.owned.forEach(T), t.owned = null), t.updatedAt = n + 1, mt(a);
   } finally {
     g = i, y = o;
   }
-  (!e.updatedAt || e.updatedAt <= n) && (e.updatedAt != null && "observers" in e ? fe(e, r) : e.value = r, e.updatedAt = n);
+  (!t.updatedAt || t.updatedAt <= n) && (t.updatedAt != null && "observers" in t ? gt(t, r) : t.value = r, t.updatedAt = n);
 }
-function pe(e, t, n, r = x, o) {
+function ht(t, e, n, r = k, o) {
   const i = {
-    fn: e,
+    fn: t,
     state: r,
     updatedAt: null,
     owned: null,
     sources: null,
     sourceSlots: null,
     cleanups: null,
-    value: t,
+    value: e,
     owner: y,
     context: y ? y.context : null,
     pure: n
   };
-  return y === null || y !== ce && (y.owned ? y.owned.push(i) : y.owned = [i]), i;
+  return y === null || y !== dt && (y.owned ? y.owned.push(i) : y.owned = [i]), i;
 }
-function ge(e) {
-  if (e.state === 0) return;
-  if (e.state === R) return D(e);
-  if (e.suspense && K(e.suspense.inFallback)) return e.suspense.effects.push(e);
-  const t = [e];
-  for (; (e = e.owner) && (!e.updatedAt || e.updatedAt < q); )
-    e.state && t.push(e);
-  for (let n = t.length - 1; n >= 0; n--)
-    if (e = t[n], e.state === x)
-      I(e);
-    else if (e.state === R) {
-      const r = b;
-      b = null, j(() => D(e, t[0]), !1), b = r;
+function bt(t) {
+  if (t.state === 0) return;
+  if (t.state === z) return D(t);
+  if (t.suspense && Q(t.suspense.inFallback)) return t.suspense.effects.push(t);
+  const e = [t];
+  for (; (t = t.owner) && (!t.updatedAt || t.updatedAt < q); )
+    t.state && e.push(t);
+  for (let n = e.length - 1; n >= 0; n--)
+    if (t = e[n], t.state === k)
+      I(t);
+    else if (t.state === z) {
+      const r = h;
+      h = null, O(() => D(t, e[0]), !1), h = r;
     }
 }
-function j(e, t) {
-  if (b) return e();
+function O(t, e) {
+  if (h) return t();
   let n = !1;
-  t || (b = []), C ? n = !0 : C = [], q++;
+  e || (h = []), S ? n = !0 : S = [], q++;
   try {
-    const r = e();
-    return Ae(n), r;
+    const r = t();
+    return Tt(n), r;
   } catch (r) {
-    n || (C = null), b = null, ve(r);
+    n || (S = null), h = null, mt(r);
   }
 }
-function Ae(e) {
-  if (b && (he(b), b = null), e) return;
-  const t = C;
-  C = null, t.length && j(() => Se(t), !1);
+function Tt(t) {
+  if (h && (vt(h), h = null), t) return;
+  const e = S;
+  S = null, e.length && O(() => xt(e), !1);
 }
-function he(e) {
-  for (let t = 0; t < e.length; t++) ge(e[t]);
+function vt(t) {
+  for (let e = 0; e < t.length; e++) bt(t[e]);
 }
-function D(e, t) {
-  e.state = 0;
-  for (let n = 0; n < e.sources.length; n += 1) {
-    const r = e.sources[n];
+function D(t, e) {
+  t.state = 0;
+  for (let n = 0; n < t.sources.length; n += 1) {
+    const r = t.sources[n];
     if (r.sources) {
       const o = r.state;
-      o === x ? r !== t && (!r.updatedAt || r.updatedAt < q) && ge(r) : o === R && D(r, t);
+      o === k ? r !== e && (!r.updatedAt || r.updatedAt < q) && bt(r) : o === z && D(r, e);
     }
   }
 }
-function be(e) {
-  for (let t = 0; t < e.observers.length; t += 1) {
-    const n = e.observers[t];
-    n.state || (n.state = R, n.pure ? b.push(n) : C.push(n), n.observers && be(n));
+function yt(t) {
+  for (let e = 0; e < t.observers.length; e += 1) {
+    const n = t.observers[e];
+    n.state || (n.state = z, n.pure ? h.push(n) : S.push(n), n.observers && yt(n));
   }
 }
-function T(e) {
-  let t;
-  if (e.sources)
-    for (; e.sources.length; ) {
-      const n = e.sources.pop(), r = e.sourceSlots.pop(), o = n.observers;
+function T(t) {
+  let e;
+  if (t.sources)
+    for (; t.sources.length; ) {
+      const n = t.sources.pop(), r = t.sourceSlots.pop(), o = n.observers;
       if (o && o.length) {
-        const i = o.pop(), l = n.observerSlots.pop();
-        r < o.length && (i.sourceSlots[l] = r, o[r] = i, n.observerSlots[r] = l);
+        const i = o.pop(), a = n.observerSlots.pop();
+        r < o.length && (i.sourceSlots[a] = r, o[r] = i, n.observerSlots[r] = a);
       }
     }
-  if (e.tOwned) {
-    for (t = e.tOwned.length - 1; t >= 0; t--) T(e.tOwned[t]);
-    delete e.tOwned;
+  if (t.tOwned) {
+    for (e = t.tOwned.length - 1; e >= 0; e--) T(t.tOwned[e]);
+    delete t.tOwned;
   }
-  if (e.owned) {
-    for (t = e.owned.length - 1; t >= 0; t--) T(e.owned[t]);
-    e.owned = null;
+  if (t.owned) {
+    for (e = t.owned.length - 1; e >= 0; e--) T(t.owned[e]);
+    t.owned = null;
   }
-  if (e.cleanups) {
-    for (t = e.cleanups.length - 1; t >= 0; t--) e.cleanups[t]();
-    e.cleanups = null;
+  if (t.cleanups) {
+    for (e = t.cleanups.length - 1; e >= 0; e--) t.cleanups[e]();
+    t.cleanups = null;
   }
-  e.state = 0;
+  t.state = 0;
 }
-function Ee(e) {
-  return e instanceof Error ? e : new Error(typeof e == "string" ? e : "Unknown error", {
-    cause: e
+function Ot(t) {
+  return t instanceof Error ? t : new Error(typeof t == "string" ? t : "Unknown error", {
+    cause: t
   });
 }
-function ve(e, t = y) {
-  throw Ee(e);
+function mt(t, e = y) {
+  throw Ot(t);
 }
-function P(e, t) {
-  return K(() => e(t || {}));
+function R(t, e) {
+  return Q(() => t(e || {}));
 }
-const M = (e) => Ce(() => e());
-function $e(e, t, n) {
-  let r = n.length, o = t.length, i = r, l = 0, s = 0, a = t[o - 1].nextSibling, c = null;
-  for (; l < o || s < i; ) {
-    if (t[l] === n[s]) {
-      l++, s++;
+const M = (t) => At(() => t());
+function Lt(t, e, n) {
+  let r = n.length, o = e.length, i = r, a = 0, s = 0, c = e[o - 1].nextSibling, l = null;
+  for (; a < o || s < i; ) {
+    if (e[a] === n[s]) {
+      a++, s++;
       continue;
     }
-    for (; t[o - 1] === n[i - 1]; )
+    for (; e[o - 1] === n[i - 1]; )
       o--, i--;
-    if (o === l) {
-      const d = i < r ? s ? n[s - 1].nextSibling : n[i - s] : a;
-      for (; s < i; ) e.insertBefore(n[s++], d);
+    if (o === a) {
+      const u = i < r ? s ? n[s - 1].nextSibling : n[i - s] : c;
+      for (; s < i; ) t.insertBefore(n[s++], u);
     } else if (i === s)
-      for (; l < o; )
-        (!c || !c.has(t[l])) && t[l].remove(), l++;
-    else if (t[l] === n[i - 1] && n[s] === t[o - 1]) {
-      const d = t[--o].nextSibling;
-      e.insertBefore(n[s++], t[l++].nextSibling), e.insertBefore(n[--i], d), t[o] = n[i];
+      for (; a < o; )
+        (!l || !l.has(e[a])) && e[a].remove(), a++;
+    else if (e[a] === n[i - 1] && n[s] === e[o - 1]) {
+      const u = e[--o].nextSibling;
+      t.insertBefore(n[s++], e[a++].nextSibling), t.insertBefore(n[--i], u), e[o] = n[i];
     } else {
-      if (!c) {
-        c = /* @__PURE__ */ new Map();
-        let m = s;
-        for (; m < i; ) c.set(n[m], m++);
+      if (!l) {
+        l = /* @__PURE__ */ new Map();
+        let b = s;
+        for (; b < i; ) l.set(n[b], b++);
       }
-      const d = c.get(t[l]);
-      if (d != null)
-        if (s < d && d < i) {
-          let m = l, w = 1, O;
-          for (; ++m < o && m < i && !((O = c.get(t[m])) == null || O !== d + w); )
-            w++;
-          if (w > d - s) {
-            const N = t[l];
-            for (; s < d; ) e.insertBefore(n[s++], N);
-          } else e.replaceChild(n[s++], t[l++]);
-        } else l++;
-      else t[l++].remove();
+      const u = l.get(e[a]);
+      if (u != null)
+        if (s < u && u < i) {
+          let b = a, A = 1, N;
+          for (; ++b < o && b < i && !((N = l.get(e[b])) == null || N !== u + A); )
+            A++;
+          if (A > u - s) {
+            const j = e[a];
+            for (; s < u; ) t.insertBefore(n[s++], j);
+          } else t.replaceChild(n[s++], e[a++]);
+        } else a++;
+      else e[a++].remove();
     }
   }
 }
-const re = "_$DX_DELEGATE";
-function L(e, t, n, r) {
+const ot = "_$DX_DELEGATE";
+function L(t, e, n, r) {
   let o;
   const i = () => {
     const s = document.createElement("template");
-    return s.innerHTML = e, s.content.firstChild;
-  }, l = () => (o || (o = i())).cloneNode(!0);
-  return l.cloneNode = l, l;
+    return s.innerHTML = t, s.content.firstChild;
+  }, a = () => (o || (o = i())).cloneNode(!0);
+  return a.cloneNode = a, a;
 }
-function Te(e, t = window.document) {
-  const n = t[re] || (t[re] = /* @__PURE__ */ new Set());
-  for (let r = 0, o = e.length; r < o; r++) {
-    const i = e[r];
-    n.has(i) || (n.add(i), t.addEventListener(i, Le));
+function Nt(t, e = window.document) {
+  const n = e[ot] || (e[ot] = /* @__PURE__ */ new Set());
+  for (let r = 0, o = t.length; r < o; r++) {
+    const i = t[r];
+    n.has(i) || (n.add(i), e.addEventListener(i, Rt));
   }
 }
-function $(e, t, n) {
-  n == null ? e.removeAttribute(t) : e.setAttribute(t, n);
+function $(t, e, n) {
+  n == null ? t.removeAttribute(e) : t.setAttribute(e, n);
 }
-function je(e, t, n) {
-  if (!t) return n ? $(e, "style") : t;
-  const r = e.style;
-  if (typeof t == "string") return r.cssText = t;
-  typeof n == "string" && (r.cssText = n = void 0), n || (n = {}), t || (t = {});
+function jt(t, e, n) {
+  if (!e) return n ? $(t, "style") : e;
+  const r = t.style;
+  if (typeof e == "string") return r.cssText = e;
+  typeof n == "string" && (r.cssText = n = void 0), n || (n = {}), e || (e = {});
   let o, i;
   for (i in n)
-    t[i] == null && r.removeProperty(i), delete n[i];
-  for (i in t)
-    o = t[i], o !== n[i] && (r.setProperty(i, o), n[i] = o);
+    e[i] == null && r.removeProperty(i), delete n[i];
+  for (i in e)
+    o = e[i], o !== n[i] && (r.setProperty(i, o), n[i] = o);
   return n;
 }
-function k(e, t, n, r) {
-  if (n !== void 0 && !r && (r = []), typeof t != "function") return F(e, t, r, n);
-  B((o) => F(e, t(), o, n), r);
+function C(t, e, n, r) {
+  if (n !== void 0 && !r && (r = []), typeof e != "function") return F(t, e, r, n);
+  B((o) => F(t, e(), o, n), r);
 }
-function Le(e) {
-  let t = e.target;
-  const n = `$$${e.type}`, r = e.target, o = e.currentTarget, i = (a) => Object.defineProperty(e, "target", {
+function Rt(t) {
+  let e = t.target;
+  const n = `$$${t.type}`, r = t.target, o = t.currentTarget, i = (c) => Object.defineProperty(t, "target", {
     configurable: !0,
-    value: a
-  }), l = () => {
-    const a = t[n];
-    if (a && !t.disabled) {
-      const c = t[`${n}Data`];
-      if (c !== void 0 ? a.call(t, c, e) : a.call(t, e), e.cancelBubble) return;
+    value: c
+  }), a = () => {
+    const c = e[n];
+    if (c && !e.disabled) {
+      const l = e[`${n}Data`];
+      if (l !== void 0 ? c.call(e, l, t) : c.call(e, t), t.cancelBubble) return;
     }
-    return t.host && typeof t.host != "string" && !t.host._$host && t.contains(e.target) && i(t.host), !0;
+    return e.host && typeof e.host != "string" && !e.host._$host && e.contains(t.target) && i(e.host), !0;
   }, s = () => {
-    for (; l() && (t = t._$host || t.parentNode || t.host); ) ;
+    for (; a() && (e = e._$host || e.parentNode || e.host); ) ;
   };
-  if (Object.defineProperty(e, "currentTarget", {
+  if (Object.defineProperty(t, "currentTarget", {
     configurable: !0,
     get() {
-      return t || document;
+      return e || document;
     }
-  }), e.composedPath) {
-    const a = e.composedPath();
-    i(a[0]);
-    for (let c = 0; c < a.length - 2 && (t = a[c], !!l()); c++) {
-      if (t._$host) {
-        t = t._$host, s();
+  }), t.composedPath) {
+    const c = t.composedPath();
+    i(c[0]);
+    for (let l = 0; l < c.length - 2 && (e = c[l], !!a()); l++) {
+      if (e._$host) {
+        e = e._$host, s();
         break;
       }
-      if (t.parentNode === o)
+      if (e.parentNode === o)
         break;
     }
   } else s();
   i(r);
 }
-function F(e, t, n, r, o) {
+function F(t, e, n, r, o) {
   for (; typeof n == "function"; ) n = n();
-  if (t === n) return n;
-  const i = typeof t, l = r !== void 0;
-  if (e = l && n[0] && n[0].parentNode || e, i === "string" || i === "number") {
-    if (i === "number" && (t = t.toString(), t === n))
+  if (e === n) return n;
+  const i = typeof e, a = r !== void 0;
+  if (t = a && n[0] && n[0].parentNode || t, i === "string" || i === "number") {
+    if (i === "number" && (e = e.toString(), e === n))
       return n;
-    if (l) {
+    if (a) {
       let s = n[0];
-      s && s.nodeType === 3 ? s.data !== t && (s.data = t) : s = document.createTextNode(t), n = A(e, n, r, s);
+      s && s.nodeType === 3 ? s.data !== e && (s.data = e) : s = document.createTextNode(e), n = x(t, n, r, s);
     } else
-      n !== "" && typeof n == "string" ? n = e.firstChild.data = t : n = e.textContent = t;
-  } else if (t == null || i === "boolean")
-    n = A(e, n, r);
+      n !== "" && typeof n == "string" ? n = t.firstChild.data = e : n = t.textContent = e;
+  } else if (e == null || i === "boolean")
+    n = x(t, n, r);
   else {
     if (i === "function")
       return B(() => {
-        let s = t();
+        let s = e();
         for (; typeof s == "function"; ) s = s();
-        n = F(e, s, n, r);
+        n = F(t, s, n, r);
       }), () => n;
-    if (Array.isArray(t)) {
-      const s = [], a = n && Array.isArray(n);
-      if (G(s, t, n, o))
-        return B(() => n = F(e, s, n, r, !0)), () => n;
+    if (Array.isArray(e)) {
+      const s = [], c = n && Array.isArray(n);
+      if (G(s, e, n, o))
+        return B(() => n = F(t, s, n, r, !0)), () => n;
       if (s.length === 0) {
-        if (n = A(e, n, r), l) return n;
-      } else a ? n.length === 0 ? oe(e, s, r) : $e(e, n, s) : (n && A(e), oe(e, s));
+        if (n = x(t, n, r), a) return n;
+      } else c ? n.length === 0 ? it(t, s, r) : Lt(t, n, s) : (n && x(t), it(t, s));
       n = s;
-    } else if (t.nodeType) {
+    } else if (e.nodeType) {
       if (Array.isArray(n)) {
-        if (l) return n = A(e, n, r, t);
-        A(e, n, null, t);
-      } else n == null || n === "" || !e.firstChild ? e.appendChild(t) : e.replaceChild(t, e.firstChild);
-      n = t;
+        if (a) return n = x(t, n, r, e);
+        x(t, n, null, e);
+      } else n == null || n === "" || !t.firstChild ? t.appendChild(e) : t.replaceChild(e, t.firstChild);
+      n = e;
     }
   }
   return n;
 }
-function G(e, t, n, r) {
+function G(t, e, n, r) {
   let o = !1;
-  for (let i = 0, l = t.length; i < l; i++) {
-    let s = t[i], a = n && n[e.length], c;
-    if (!(s == null || s === !0 || s === !1)) if ((c = typeof s) == "object" && s.nodeType)
-      e.push(s);
+  for (let i = 0, a = e.length; i < a; i++) {
+    let s = e[i], c = n && n[t.length], l;
+    if (!(s == null || s === !0 || s === !1)) if ((l = typeof s) == "object" && s.nodeType)
+      t.push(s);
     else if (Array.isArray(s))
-      o = G(e, s, a) || o;
-    else if (c === "function")
+      o = G(t, s, c) || o;
+    else if (l === "function")
       if (r) {
         for (; typeof s == "function"; ) s = s();
-        o = G(e, Array.isArray(s) ? s : [s], Array.isArray(a) ? a : [a]) || o;
+        o = G(t, Array.isArray(s) ? s : [s], Array.isArray(c) ? c : [c]) || o;
       } else
-        e.push(s), o = !0;
+        t.push(s), o = !0;
     else {
-      const d = String(s);
-      a && a.nodeType === 3 && a.data === d ? e.push(a) : e.push(document.createTextNode(d));
+      const u = String(s);
+      c && c.nodeType === 3 && c.data === u ? t.push(c) : t.push(document.createTextNode(u));
     }
   }
   return o;
 }
-function oe(e, t, n = null) {
-  for (let r = 0, o = t.length; r < o; r++) e.insertBefore(t[r], n);
+function it(t, e, n = null) {
+  for (let r = 0, o = e.length; r < o; r++) t.insertBefore(e[r], n);
 }
-function A(e, t, n, r) {
-  if (n === void 0) return e.textContent = "";
+function x(t, e, n, r) {
+  if (n === void 0) return t.textContent = "";
   const o = r || document.createTextNode("");
-  if (t.length) {
+  if (e.length) {
     let i = !1;
-    for (let l = t.length - 1; l >= 0; l--) {
-      const s = t[l];
+    for (let a = e.length - 1; a >= 0; a--) {
+      const s = e[a];
       if (o !== s) {
-        const a = s.parentNode === e;
-        !i && !l ? a ? e.replaceChild(o, s) : e.insertBefore(o, n) : a && s.remove();
+        const c = s.parentNode === t;
+        !i && !a ? c ? t.replaceChild(o, s) : t.insertBefore(o, n) : c && s.remove();
       } else i = !0;
     }
-  } else e.insertBefore(o, n);
+  } else t.insertBefore(o, n);
   return [o];
 }
-function Oe(e) {
-  return Object.keys(e).reduce((t, n) => {
-    const r = e[n];
-    return t[n] = Object.assign({}, r), me(r.value) && !Re(r.value) && !Array.isArray(r.value) && (t[n].value = Object.assign({}, r.value)), Array.isArray(r.value) && (t[n].value = r.value.slice(0)), t;
+function Mt(t) {
+  return Object.keys(t).reduce((e, n) => {
+    const r = t[n];
+    return e[n] = Object.assign({}, r), wt(r.value) && !Ft(r.value) && !Array.isArray(r.value) && (e[n].value = Object.assign({}, r.value)), Array.isArray(r.value) && (e[n].value = r.value.slice(0)), e;
   }, {});
 }
-function Ne(e) {
-  return e ? Object.keys(e).reduce((t, n) => {
-    const r = e[n];
-    return t[n] = me(r) && "value" in r ? r : {
+function Pt(t) {
+  return t ? Object.keys(t).reduce((e, n) => {
+    const r = t[n];
+    return e[n] = wt(r) && "value" in r ? r : {
       value: r
-    }, t[n].attribute || (t[n].attribute = ze(n)), t[n].parse = "parse" in t[n] ? t[n].parse : typeof t[n].value != "string", t;
+    }, e[n].attribute || (e[n].attribute = Dt(n)), e[n].parse = "parse" in e[n] ? e[n].parse : typeof e[n].value != "string", e;
   }, {}) : {};
 }
-function Pe(e) {
-  return Object.keys(e).reduce((t, n) => (t[n] = e[n].value, t), {});
+function zt(t) {
+  return Object.keys(t).reduce((e, n) => (e[n] = t[n].value, e), {});
 }
-function Me(e, t) {
-  const n = Oe(t);
-  return Object.keys(t).forEach((r) => {
-    const o = n[r], i = e.getAttribute(o.attribute), l = e[r];
-    i != null && (o.value = o.parse ? ye(i) : i), l != null && (o.value = Array.isArray(l) ? l.slice(0) : l), o.reflect && ie(e, o.attribute, o.value, !!o.parse), Object.defineProperty(e, r, {
+function Bt(t, e) {
+  const n = Mt(e);
+  return Object.keys(e).forEach((r) => {
+    const o = n[r], i = t.getAttribute(o.attribute), a = t[r];
+    i != null && (o.value = o.parse ? _t(i) : i), a != null && (o.value = Array.isArray(a) ? a.slice(0) : a), o.reflect && st(t, o.attribute, o.value, !!o.parse), Object.defineProperty(t, r, {
       get() {
         return o.value;
       },
       set(s) {
-        const a = o.value;
-        o.value = s, o.reflect && ie(this, o.attribute, o.value, !!o.parse);
-        for (let c = 0, d = this.__propertyChangedCallbacks.length; c < d; c++)
-          this.__propertyChangedCallbacks[c](r, s, a);
+        const c = o.value;
+        o.value = s, o.reflect && st(this, o.attribute, o.value, !!o.parse);
+        for (let l = 0, u = this.__propertyChangedCallbacks.length; l < u; l++)
+          this.__propertyChangedCallbacks[l](r, s, c);
       },
       enumerable: !0,
       configurable: !0
     });
   }), n;
 }
-function ye(e) {
-  if (e)
+function _t(t) {
+  if (t)
     try {
-      return JSON.parse(e);
+      return JSON.parse(t);
     } catch {
-      return e;
+      return t;
     }
 }
-function ie(e, t, n, r) {
-  if (n == null || n === !1) return e.removeAttribute(t);
+function st(t, e, n, r) {
+  if (n == null || n === !1) return t.removeAttribute(e);
   let o = r ? JSON.stringify(n) : n;
-  e.__updating[t] = !0, o === "true" && (o = ""), e.setAttribute(t, o), Promise.resolve().then(() => delete e.__updating[t]);
+  t.__updating[e] = !0, o === "true" && (o = ""), t.setAttribute(e, o), Promise.resolve().then(() => delete t.__updating[e]);
 }
-function ze(e) {
-  return e.replace(/\.?([A-Z]+)/g, (t, n) => "-" + n.toLowerCase()).replace("_", "-").replace(/^-/, "");
+function Dt(t) {
+  return t.replace(/\.?([A-Z]+)/g, (e, n) => "-" + n.toLowerCase()).replace("_", "-").replace(/^-/, "");
 }
-function me(e) {
-  return e != null && (typeof e == "object" || typeof e == "function");
+function wt(t) {
+  return t != null && (typeof t == "object" || typeof t == "function");
 }
-function Re(e) {
-  return Object.prototype.toString.call(e) === "[object Function]";
+function Ft(t) {
+  return Object.prototype.toString.call(t) === "[object Function]";
 }
-function Be(e) {
-  return typeof e == "function" && e.toString().indexOf("class") === 0;
+function qt(t) {
+  return typeof t == "function" && t.toString().indexOf("class") === 0;
 }
-let X;
-function De(e, t) {
-  const n = Object.keys(t);
-  return class extends e {
+let J;
+function It(t, e) {
+  const n = Object.keys(e);
+  return class extends t {
     static get observedAttributes() {
-      return n.map((r) => t[r].attribute);
+      return n.map((r) => e[r].attribute);
     }
     constructor() {
       super(), this.__initialized = !1, this.__released = !1, this.__releaseCallbacks = [], this.__propertyChangedCallbacks = [], this.__updating = {}, this.props = {};
+      for (let r of n)
+        this[r] = void 0;
     }
     connectedCallback() {
       if (this.__initialized) return;
-      this.__releaseCallbacks = [], this.__propertyChangedCallbacks = [], this.__updating = {}, this.props = Me(this, t);
-      const r = Pe(this.props), o = this.Component, i = X;
+      this.__releaseCallbacks = [], this.__propertyChangedCallbacks = [], this.__updating = {}, this.props = Bt(this, e);
+      const r = zt(this.props), o = this.Component, i = J;
       try {
-        X = this, this.__initialized = !0, Be(o) ? new o(r, {
+        J = this, this.__initialized = !0, qt(o) ? new o(r, {
           element: this
         }) : o(r, {
           element: this
         });
       } finally {
-        X = i;
+        J = i;
       }
     }
     async disconnectedCallback() {
@@ -477,14 +479,14 @@ function De(e, t) {
       delete this.__initialized, this.__released = !0;
     }
     attributeChangedCallback(r, o, i) {
-      if (this.__initialized && !this.__updating[r] && (r = this.lookupProp(r), r in t)) {
+      if (this.__initialized && !this.__updating[r] && (r = this.lookupProp(r), r in e)) {
         if (i == null && !this[r]) return;
-        this[r] = t[r].parse ? ye(i) : i;
+        this[r] = e[r].parse ? _t(i) : i;
       }
     }
     lookupProp(r) {
-      if (t)
-        return n.find((o) => r === o || r === t[o].attribute);
+      if (e)
+        return n.find((o) => r === o || r === e[o].attribute);
     }
     get renderRoot() {
       return this.shadowRoot || this.attachShadow({
@@ -499,54 +501,54 @@ function De(e, t) {
     }
   };
 }
-function Fe(e, t = {}, n = {}) {
+function Ut(t, e = {}, n = {}) {
   const {
     BaseElement: r = HTMLElement,
     extension: o,
     customElements: i = window.customElements
   } = n;
-  return (l) => {
-    let s = i.get(e);
-    return s ? (s.prototype.Component = l, s) : (s = De(r, Ne(t)), s.prototype.Component = l, s.prototype.registeredTag = e, i.define(e, s, o), s);
+  return (a) => {
+    let s = i.get(t);
+    return s ? (s.prototype.Component = a, s) : (s = It(r, Pt(e)), s.prototype.Component = a, s.prototype.registeredTag = t, i.define(t, s, o), s);
   };
 }
-function qe(e) {
-  const t = Object.keys(e), n = {};
-  for (let r = 0; r < t.length; r++) {
-    const [o, i] = ue(e[t[r]]);
-    Object.defineProperty(n, t[r], {
+function Xt(t) {
+  const e = Object.keys(t), n = {};
+  for (let r = 0; r < e.length; r++) {
+    const [o, i] = ft(t[e[r]]);
+    Object.defineProperty(n, e[r], {
       get: o,
-      set(l) {
-        i(() => l);
+      set(a) {
+        i(() => a);
       }
     });
   }
   return n;
 }
-function Ie(e) {
-  if (e.assignedSlot && e.assignedSlot._$owner) return e.assignedSlot._$owner;
-  let t = e.parentNode;
-  for (; t && !t._$owner && !(t.assignedSlot && t.assignedSlot._$owner); )
-    t = t.parentNode;
-  return t && t.assignedSlot ? t.assignedSlot._$owner : e._$owner;
+function Ht(t) {
+  if (t.assignedSlot && t.assignedSlot._$owner) return t.assignedSlot._$owner;
+  let e = t.parentNode;
+  for (; e && !e._$owner && !(e.assignedSlot && e.assignedSlot._$owner); )
+    e = e.parentNode;
+  return e && e.assignedSlot ? e.assignedSlot._$owner : t._$owner;
 }
-function Ue(e) {
-  return (t, n) => {
+function Jt(t) {
+  return (e, n) => {
     const { element: r } = n;
-    return ke((o) => {
-      const i = qe(t);
-      r.addPropertyChangedCallback((s, a) => i[s] = a), r.addReleaseCallback(() => {
+    return Et((o) => {
+      const i = Xt(e);
+      r.addPropertyChangedCallback((s, c) => i[s] = c), r.addReleaseCallback(() => {
         r.renderRoot.textContent = "", o();
       });
-      const l = e(i, n);
-      return k(r.renderRoot, l);
-    }, Ie(r));
+      const a = t(i, n);
+      return C(r.renderRoot, a);
+    }, Ht(r));
   };
 }
-function He(e, t, n) {
-  return arguments.length === 2 && (n = t, t = {}), Fe(e, t)(Ue(n));
+function Zt(t, e, n) {
+  return arguments.length === 2 && (n = e, e = {}), Ut(t, e)(Jt(n));
 }
-const Je = `
+const Gt = `
 :host([theme="dark"]) {
   color-scheme: only dark;
 }
@@ -613,98 +615,98 @@ const Je = `
   }
 }
 `;
-var Xe = /* @__PURE__ */ L("<div part=container class=dictate-button__container><style></style><div aria-live=polite class=dictate-button__status-announcer></div><button part=button class=dictate-button__button>"), Ze = /* @__PURE__ */ L('<svg part=icon class="dictate-button__icon dictate-button__icon--idle"fill=none viewBox="0 0 24 24"stroke-width=1.5 stroke=currentColor role=img aria-hidden=true><path stroke-linecap=round stroke-linejoin=round d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z">'), Ge = /* @__PURE__ */ L('<svg part=icon class="dictate-button__icon dictate-button__icon--recording"viewBox="0 0 24 24"fill=currentColor role=img aria-hidden=true><circle cx=12 cy=12 r=10>'), Ve = /* @__PURE__ */ L('<svg part=icon class="dictate-button__icon dictate-button__icon--processing"viewBox="0 0 24 24"fill=none stroke=currentColor stroke-width=1.5 stroke-linecap=round stroke-linejoin=round role=img aria-hidden=true><path d="M12 2v4"></path><path d="m16.2 7.8 2.9-2.9"></path><path d="M18 12h4"></path><path d="m16.2 16.2 2.9 2.9"></path><path d="M12 18v4"></path><path d="m4.9 19.1 2.9-2.9"></path><path d="M2 12h4"></path><path d="m4.9 4.9 2.9 2.9">'), Ke = /* @__PURE__ */ L('<svg part=icon class="dictate-button__icon dictate-button__icon--error"viewBox="0 0 24 24"fill=none stroke=currentColor stroke-width=4 stroke-linecap=round stroke-linejoin=round role=img aria-hidden=true><line x1=12 x2=12 y1=4 y2=14></line><line x1=12 x2=12.01 y1=20 y2=20>');
-console.debug("dictate-button version:", "1.4.7");
-const Qe = "https://api.dictate-button.io/transcribe", S = "dictate-button.io", Z = -70, se = -10, le = 0, We = 4, Ye = 0.25, et = 0.05;
-He("dictate-button", {
+var Vt = /* @__PURE__ */ L("<div part=container class=dictate-button__container><style></style><div aria-live=polite class=dictate-button__status-announcer></div><button part=button class=dictate-button__button>"), Kt = /* @__PURE__ */ L('<svg part=icon class="dictate-button__icon dictate-button__icon--idle"fill=none viewBox="0 0 24 24"stroke-width=1.5 stroke=currentColor role=img aria-hidden=true><path stroke-linecap=round stroke-linejoin=round d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z">'), Qt = /* @__PURE__ */ L('<svg part=icon class="dictate-button__icon dictate-button__icon--recording"viewBox="0 0 24 24"fill=currentColor role=img aria-hidden=true><circle cx=12 cy=12 r=10>'), Wt = /* @__PURE__ */ L('<svg part=icon class="dictate-button__icon dictate-button__icon--processing"viewBox="0 0 24 24"fill=none stroke=currentColor stroke-width=1.5 stroke-linecap=round stroke-linejoin=round role=img aria-hidden=true><path d="M12 2v4"></path><path d="m16.2 7.8 2.9-2.9"></path><path d="M18 12h4"></path><path d="m16.2 16.2 2.9 2.9"></path><path d="M12 18v4"></path><path d="m4.9 19.1 2.9-2.9"></path><path d="M2 12h4"></path><path d="m4.9 4.9 2.9 2.9">'), Yt = /* @__PURE__ */ L('<svg part=icon class="dictate-button__icon dictate-button__icon--error"viewBox="0 0 24 24"fill=none stroke=currentColor stroke-width=4 stroke-linecap=round stroke-linejoin=round role=img aria-hidden=true><line x1=12 x2=12 y1=4 y2=14></line><line x1=12 x2=12.01 y1=20 y2=20>');
+console.debug("dictate-button version:", "1.5.1");
+const te = "https://api.dictate-button.io/transcribe", w = "dictate-button.io", Z = -70, at = -10, lt = 0, ee = 4, ne = 0.25, re = 0.05;
+Zt("dictate-button", {
   size: 30,
-  apiEndpoint: Qe,
+  apiEndpoint: te,
   language: void 0
-}, (e, {
-  element: t
+}, (t, {
+  element: e
 }) => {
-  console.debug("api", e.apiEndpoint);
-  const [n, r] = ue("idle");
-  let o = null, i = [], l = null, s = null, a = null, c = !1, d = 0;
-  const m = (f) => f <= Z ? 0 : f >= se ? 1 : (f - Z) / (se - Z), w = (f) => {
+  console.debug("api", t.apiEndpoint);
+  const [n, r] = ft("idle");
+  let o = null, i = [], a = null, s = null, c = null, l = !1, u = 0;
+  const b = (f) => f <= Z ? 0 : f >= at ? 1 : (f - Z) / (at - Z), A = (f) => {
     let _ = 0;
     for (let v = 0; v < f.length; v++) {
-      const u = (f[v] - 128) / 128;
-      _ += u * u;
+      const d = (f[v] - 128) / 128;
+      _ += d * d;
     }
     return Math.sqrt(_ / f.length);
-  }, O = (f) => 20 * Math.log10(Math.max(f, 1e-8)), N = (f) => {
-    const _ = t.shadowRoot.querySelector(".dictate-button__button");
+  }, N = (f) => 20 * Math.log10(Math.max(f, 1e-8)), j = (f) => {
+    const _ = e.shadowRoot.querySelector(".dictate-button__button");
     if (!_)
       return;
-    const v = le + f * (We - le), u = 0 + f * 0.4;
-    _.style.boxShadow = `0 0 0 ${v}px light-dark(rgba(0, 0, 0, ${u}), rgba(255, 255, 255, ${u}))`;
-  }, Q = () => {
-    if (!c || !s || !a) return;
-    s.getByteTimeDomainData(a);
-    const f = w(a), _ = O(f), v = m(_), u = v > d ? Ye : et;
-    d = u * v + (1 - u) * d, N(d), requestAnimationFrame(Q);
+    const v = lt + f * (ee - lt), d = 0 + f * 0.4;
+    _.style.boxShadow = `0 0 0 ${v}px light-dark(rgba(0, 0, 0, ${d}), rgba(255, 255, 255, ${d}))`;
+  }, W = () => {
+    if (!l || !s || !c) return;
+    s.getByteTimeDomainData(c);
+    const f = A(c), _ = N(f), v = b(_), d = v > u ? ne : re;
+    u = d * v + (1 - d) * u, j(u), requestAnimationFrame(W);
   }, U = () => {
-    o && o.state !== "inactive" && o.stop(), i = [], c = !1, l && l.state !== "closed" && l.close(), l = null, s = null, a = null, d = 0, N(0);
+    o && o.state !== "inactive" && o.stop(), i = [], l = !1, a && a.state !== "closed" && a.close(), a = null, s = null, c = null, u = 0, j(0);
   };
-  t.addEventListener("disconnected", U);
-  const _e = async () => {
+  e.addEventListener("disconnected", U);
+  const St = async () => {
     if (U(), n() === "idle")
       try {
         const f = await navigator.mediaDevices.getUserMedia({
           audio: !0
         });
-        l = new (window.AudioContext || window.webkitAudioContext)();
-        const _ = l.createMediaStreamSource(f);
-        s = l.createAnalyser(), s.fftSize = 2048, _.connect(s), a = new Uint8Array(s.fftSize), o = new MediaRecorder(f, {
+        a = new (window.AudioContext || window.webkitAudioContext)();
+        const _ = a.createMediaStreamSource(f);
+        s = a.createAnalyser(), s.fftSize = 2048, _.connect(s), c = new Uint8Array(s.fftSize), o = new MediaRecorder(f, {
           mimeType: "audio/webm"
         }), i = [], o.ondataavailable = (v) => {
           i.push(v.data);
         }, o.onstop = async () => {
-          c = !1, r("processing"), E(t, "transcribing:started", "Started transcribing");
+          l = !1, r("processing"), E(e, "transcribing:started", "Started transcribing");
           const v = new Blob(i, {
             type: "audio/webm"
           });
           try {
-            const u = new FormData();
-            u.append("audio", v, "recording.webm"), u.append("origin", window?.location?.origin), e.language && u.append("language", e.language);
-            const p = await fetch(e.apiEndpoint, {
+            const d = new FormData();
+            d.append("audio", v, "recording.webm"), d.append("origin", window?.location?.origin), t.language && d.append("language", t.language);
+            const p = await fetch(t.apiEndpoint, {
               method: "POST",
-              body: u
+              body: d
             });
             if (!p.ok) throw new Error("Failed to transcribe audio");
-            const H = await p.json();
+            const X = await p.json();
             if (n() !== "processing") return;
-            E(t, "transcribing:finished", H.text), r("idle");
-          } catch (u) {
-            console.error("Failed to transcribe audio:", u), E(t, "transcribing:failed", "Failed to transcribe audio"), W();
+            E(e, "transcribing:finished", X.text), r("idle");
+          } catch (d) {
+            console.error("Failed to transcribe audio:", d), E(e, "transcribing:failed", "Failed to transcribe audio"), Y();
           }
-        }, o.start(), E(t, "recording:started", "Started recording"), c = !0, Q(), r("recording");
+        }, o.start(), E(e, "recording:started", "Started recording"), l = !0, W(), r("recording");
       } catch (f) {
-        console.error("Failed to start recording:", f), E(t, "recording:failed", "Failed to start recording"), W();
+        console.error("Failed to start recording:", f), E(e, "recording:failed", "Failed to start recording"), Y();
       }
     else
-      E(t, "recording:stopped", "Stopped recording"), r("idle"), U();
-  }, W = () => {
+      E(e, "recording:stopped", "Stopped recording"), r("idle"), U();
+  }, Y = () => {
     r("error"), setTimeout(() => r("idle"), 2e3);
   };
   return (() => {
-    var f = Xe(), _ = f.firstChild, v = _.nextSibling, u = v.nextSibling;
-    return k(_, Je), k(v, () => ae(n())), u.$$click = _e, k(u, (() => {
+    var f = Vt(), _ = f.firstChild, v = _.nextSibling, d = v.nextSibling;
+    return C(_, Gt), C(v, () => ct(n())), d.$$click = St, C(d, (() => {
       var p = M(() => n() === "idle");
-      return () => p() && P(nt, {});
-    })(), null), k(u, (() => {
+      return () => p() && R(ie, {});
+    })(), null), C(d, (() => {
       var p = M(() => n() === "recording");
-      return () => p() && P(rt, {});
-    })(), null), k(u, (() => {
+      return () => p() && R(se, {});
+    })(), null), C(d, (() => {
       var p = M(() => n() === "processing");
-      return () => p() && P(ot, {});
-    })(), null), k(u, (() => {
+      return () => p() && R(ae, {});
+    })(), null), C(d, (() => {
       var p = M(() => n() === "error");
-      return () => p() && P(it, {});
+      return () => p() && R(le, {});
     })(), null), B((p) => {
-      var H = `width:${e.size}px;height:${e.size}px"`, Y = tt(n()), ee = ae(n()), te = n() === "recording", ne = n() === "processing";
-      return p.e = je(u, H, p.e), Y !== p.t && $(u, "title", p.t = Y), ee !== p.a && $(u, "aria-label", p.a = ee), te !== p.o && $(u, "aria-pressed", p.o = te), ne !== p.i && $(u, "aria-busy", p.i = ne), p;
+      var X = `width:${t.size}px;height:${t.size}px"`, tt = oe(n()), et = ct(n()), nt = n() === "recording", rt = n() === "processing";
+      return p.e = jt(d, X, p.e), tt !== p.t && $(d, "title", p.t = tt), et !== p.a && $(d, "aria-label", p.a = et), nt !== p.o && $(d, "aria-pressed", p.o = nt), rt !== p.i && $(d, "aria-busy", p.i = rt), p;
     }, {
       e: void 0,
       t: void 0,
@@ -714,87 +716,86 @@ He("dictate-button", {
     }), f;
   })();
 });
-const tt = (e) => {
-  switch (e) {
+const oe = (t) => {
+  switch (t) {
     case "idle":
-      return `Start dictation (${S})`;
+      return `Start dictation (${w})`;
     case "recording":
-      return `Stop dictation (${S})`;
+      return `Stop dictation (${w})`;
     case "processing":
-      return `Stop processing (${S})`;
+      return `Stop processing (${w})`;
     case "error":
-      return `Click to reset (${S})`;
+      return `Click to reset (${w})`;
   }
-}, ae = (e) => {
-  switch (e) {
+}, ct = (t) => {
+  switch (t) {
     case "idle":
-      return `Start dictation (${S})`;
+      return `Start dictation (${w})`;
     case "recording":
-      return `Dictation in progress. Click to stop it (${S})`;
+      return `Dictation in progress. Click to stop it (${w})`;
     case "processing":
-      return `Processing dictation. Click to cancel it (${S})`;
+      return `Processing dictation. Click to cancel it (${w})`;
     case "error":
-      return `Dictation error. Click to reset (${S})`;
+      return `Dictation error. Click to reset (${w})`;
   }
-}, E = (e, t, n) => {
-  e.dispatchEvent(new CustomEvent(t, {
+}, E = (t, e, n) => {
+  t.dispatchEvent(new CustomEvent(e, {
     detail: n,
     bubbles: !0,
     composed: !0
   }));
-}, nt = () => Ze(), rt = () => Ge(), ot = () => Ve(), it = () => Ke();
-Te(["click"]);
-let h = null;
-st({
+}, ie = () => Kt(), se = () => Qt(), ae = () => Wt(), le = () => Yt();
+Nt(["click"]);
+let m = null;
+ce({
   buttonSize: 50,
   verbose: !0
 });
-function st(e = {}) {
-  const t = () => {
-    lt(), ct(e);
+function ce(t = {}) {
+  const e = () => {
+    ue(), de(t);
   };
-  document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", t, { once: !0 }) : t();
+  document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", e, { once: !0 }) : e();
 }
-function lt() {
-  document.addEventListener("focusin", (e) => {
-    const t = e.target;
-    if (at(t)) {
-      const n = t;
+function ue() {
+  document.addEventListener("focusin", (t) => {
+    const e = t.target;
+    if (console.log("setupFocusTracking", e, ut(e)), ut(e)) {
+      const n = e;
       let r, o;
-      "selectionStart" in n && "selectionEnd" in n && (r = n.selectionStart ?? 0, o = n.selectionEnd ?? 0), h = {
+      "selectionStart" in n && "selectionEnd" in n && (r = n.selectionStart ?? 0, o = n.selectionEnd ?? 0), m = {
         element: n,
         selectionStart: r,
         selectionEnd: o
       }, n.setAttribute("data-dictate-button-on", "true"), console.debug("Focus tracked on text field:", n);
     }
   }), document.addEventListener("selectionchange", () => {
-    if (h && "selectionStart" in h.element) {
-      const e = h.element;
-      h.selectionStart = e.selectionStart ?? 0, h.selectionEnd = e.selectionEnd ?? 0;
+    if (m && "selectionStart" in m.element) {
+      const t = m.element;
+      m.selectionStart = t.selectionStart ?? 0, m.selectionEnd = t.selectionEnd ?? 0;
     }
   });
 }
-function at(e) {
-  if (!e) return !1;
-  const t = e.tagName.toLowerCase();
-  if (t === "textarea") return !0;
-  if (t === "input") {
-    const r = e.type.toLowerCase();
-    return ["text", "search"].includes(r) || !r;
+function ut(t) {
+  if (!t) return !1;
+  const e = t.tagName.toLowerCase();
+  if (e === "textarea") return !0;
+  if (e === "input") {
+    const n = t.type.toLowerCase();
+    return ["text", "search"].includes(n) || !n;
   }
-  const n = e.getAttribute("contenteditable");
-  return n === "true" || n === "";
+  return Ct(t);
 }
-function ct(e) {
-  const { buttonSize: t = 50, verbose: n = !1, customApiEndpoint: r } = e;
+function de(t) {
+  const { buttonSize: e = 50, verbose: n = !1, customApiEndpoint: r } = t;
   if (document.querySelector("#floating-dictate-button"))
     return;
   const o = document.createElement("dictate-button");
-  o.id = "floating-dictate-button", o.size = t, o.style.position = "fixed", o.style.left = "50%", o.style.bottom = "20px", o.style.transform = "translateX(-50%)", o.style.zIndex = "10000", r && (o.apiEndpoint = r), o.language = ut(), o.addEventListener(
+  o.id = "floating-dictate-button", o.size = e, o.style.position = "fixed", o.style.left = "50%", o.style.bottom = "20px", o.style.transform = "translateX(-50%)", o.style.zIndex = "10000", r && (o.apiEndpoint = r), o.language = fe(), o.addEventListener(
     "click",
     (i) => {
-      if (!h) {
-        i.preventDefault(), i.stopPropagation(), alert("Select a target text field first");
+      if (!m) {
+        i.preventDefault(), i.stopPropagation(), alert("Select a target text field first please");
         return;
       }
     },
@@ -809,72 +810,108 @@ function ct(e) {
     n && console.debug("transcribing:started", i);
   }), o.addEventListener("transcribing:finished", (i) => {
     n && console.debug("transcribing:finished", i);
-    const l = i.detail;
-    dt(l);
+    const a = i.detail;
+    pe(a);
   }), o.addEventListener("transcribing:failed", (i) => {
     n && console.debug("transcribing:failed", i), V();
   }), document.body.appendChild(o);
 }
-function ut() {
-  const e = document.documentElement.lang;
-  if (e && e.length >= 2)
+function fe() {
+  const t = document.documentElement.lang;
+  if (t && t.length >= 2)
     try {
-      return (Intl?.Locale ? new Intl.Locale(e) : null)?.language ?? e.split(/[-_]/)[0].toLowerCase();
+      return (Intl?.Locale ? new Intl.Locale(t) : null)?.language ?? t.split(/[-_]/)[0].toLowerCase();
     } catch {
-      return e.split(/[-_]/)[0].toLowerCase();
+      return t.split(/[-_]/)[0].toLowerCase();
     }
 }
-function dt(e) {
-  if (!h) {
+function pe(t) {
+  if (!m) {
     console.debug("No last focused field to insert text into");
     return;
   }
-  const t = typeof e == "string" ? e.trim() : String(e ?? "").trim();
-  if (t.length === 0)
+  const e = typeof t == "string" ? t.trim() : String(t ?? "").trim();
+  if (e.length === 0)
     return;
-  const n = h.element;
-  if (n.getAttribute("contenteditable")) {
-    ft(n, t);
-    return;
-  }
-  if ("value" in n) {
-    const r = n, o = h.selectionStart ?? 0, i = h.selectionEnd ?? 0, l = o > 0 ? r.value.charAt(o - 1) : "", s = l && !/\s/.test(l), a = i < r.value.length ? r.value.charAt(i) : "", c = a && !/\s/.test(a), d = (s ? " " : "") + t + (c ? " " : ""), m = o + d.length, w = typeof r.scrollTop == "number" ? r.scrollTop : null;
-    if (typeof r.setRangeText == "function")
-      r.setRangeText(d, o, i, "end");
-    else {
-      r.value = r.value.substring(0, o) + d + r.value.substring(i);
-      try {
-        r.selectionStart = m, r.selectionEnd = m, h.selectionStart = m, h.selectionEnd = m;
-      } catch {
-      }
-    }
-    w !== null && (r.scrollTop = w), r.dispatchEvent(
-      new Event("input", { bubbles: !0, composed: !0 })
-    );
-  }
-  V();
+  const n = m.element;
+  Ct(n) ? he(n, e) : "value" in n && (ge(
+    n,
+    e
+  ), m.selectionStart = n.selectionStart ?? 0, m.selectionEnd = n.selectionEnd ?? 0), n.dispatchEvent(new Event("input", { bubbles: !0, composed: !0 })), V();
 }
-function ft(e, t) {
+function V() {
+  m?.element && K(m.element);
+}
+function K(t) {
+  try {
+    t.focus({ preventScroll: !0 });
+  } catch {
+    t.focus();
+  }
+}
+function Ct(t) {
+  return t.isContentEditable;
+}
+function ge(t, e) {
+  const n = t.selectionStart ?? 0, r = t.selectionEnd ?? 0, o = n > 0 ? t.value.charAt(n - 1) : "", i = o && !/\s/.test(o), a = r < t.value.length ? t.value.charAt(r) : "", s = a && !/\s/.test(a), c = (i ? " " : "") + e + (s ? " " : ""), l = n + c.length, u = typeof t.scrollTop == "number" ? t.scrollTop : null;
+  if (typeof t.setRangeText == "function")
+    t.setRangeText(c, n, r, "end");
+  else {
+    t.value = t.value.substring(0, n) + c + t.value.substring(r);
+    try {
+      t.selectionStart = l, t.selectionEnd = l;
+    } catch {
+    }
+  }
+  u !== null && (t.scrollTop = u);
+}
+function he(t, e) {
   const n = window.getSelection();
-  if (!n || n.rangeCount === 0) {
-    e.focus();
+  if (!(n && n.rangeCount > 0 && t.contains(n.getRangeAt(0).commonAncestorContainer))) {
+    K(t);
     const o = document.createRange();
-    o.selectNodeContents(e), o.collapse(!1), n?.removeAllRanges(), n?.addRange(o);
+    o.selectNodeContents(t), o.collapse(!1), n?.removeAllRanges(), n?.addRange(o);
   }
   const r = n?.getRangeAt(0);
   if (r) {
-    r.deleteContents();
-    const o = document.createTextNode(t);
-    r.insertNode(o), r.setStartAfter(o), r.setEndAfter(o), n?.removeAllRanges(), n?.addRange(r);
-  }
-  e.dispatchEvent(new Event("input", { bubbles: !0, composed: !0 }));
-}
-function V() {
-  if (h?.element)
+    const o = r.cloneRange(), i = r.cloneRange();
+    let a = !1;
+    o.collapse(!0);
     try {
-      h.element.focus({ preventScroll: !0 });
-    } catch {
-      h.element.focus();
+      o.setStart(r.startContainer, 0);
+      const l = o.toString(), u = l.length > 0 ? l.charAt(l.length - 1) : "";
+      a = u !== "" && !/\s/.test(u);
+    } catch (l) {
+      console.debug(
+        "insertIntoContentEditable: Error checking text before cursor:",
+        l
+      );
     }
+    let s = !1;
+    i.collapse(!1);
+    try {
+      if (i.endContainer.nodeType === Node.TEXT_NODE) {
+        const b = i.endContainer;
+        i.setEnd(b, b.length);
+      } else if (i.endContainer.nodeType === Node.ELEMENT_NODE) {
+        const b = i.endContainer;
+        b.childNodes.length > i.endOffset && i.setEnd(b, i.endOffset + 1);
+      }
+      const l = i.toString(), u = l.length > 0 ? l.charAt(0) : "";
+      s = u !== "" && !/\s/.test(u);
+    } catch (l) {
+      console.debug(
+        "insertIntoContentEditable: Error checking text after cursor:",
+        l
+      );
+    }
+    const c = (a ? " " : "") + e + (s ? " " : "");
+    try {
+      r.deleteContents();
+      const l = document.createTextNode(c);
+      r.insertNode(l), r.setStartAfter(l), r.setEndAfter(l), n?.removeAllRanges(), n?.addRange(r);
+    } catch (l) {
+      console.debug("insertIntoContentEditable: Error inserting text:", l), K(t), t.textContent = (t.textContent || "") + c;
+    }
+  }
 }
-console.log("inject-floating2");

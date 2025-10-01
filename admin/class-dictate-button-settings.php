@@ -31,7 +31,7 @@ class Dictate_Button_Settings {
 		add_action( 'admin_menu', array( $this, 'add_settings_page' ) );
 
 		// Add settings link to plugins page.
-		add_filter( 'plugin_action_links', array( $this, 'add_settings_link' ) );
+		add_filter( 'plugin_action_links_' . plugin_basename( plugin_dir_path( __DIR__ ) . 'class-dictate-button.php' ), array( $this, 'add_settings_link' ) );
 	}
 
 	/**

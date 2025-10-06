@@ -82,11 +82,8 @@ Currently supported:
 The plugin automatically adds the necessary `data-dictate-button-on` attribute to the form elements you select in the settings and enhances those elements with the dictate button.
 
 == Screenshots ==
-
 1. Plugin settings page showing form type configuration options
-![Plugin settings page showing form type configuration options](./assets/img/dictate-button-settings.png)
 2. Dictate button appearing on a comment form
-![Dictate button appearing on a comment form](./assets/img/comment-form-dictate-button.png)
 
 == Development ==
 

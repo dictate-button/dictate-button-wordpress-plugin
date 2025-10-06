@@ -131,3 +131,7 @@ dist
 
 # test artifacts
 test-results/
+
+# SVN
+.svn
+

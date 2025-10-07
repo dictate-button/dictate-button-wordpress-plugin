@@ -5,7 +5,7 @@ Tags: voice input, speech-to-text, transcription, dictation, dictate-button
 Requires at least: 5.0
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.2
 License: Apache-2.0
 License URI: https://www.apache.org/licenses/LICENSE-2.0
 
@@ -91,14 +91,18 @@ The plugin development repository is available on [GitHub](https://github.com/di
 
 We locally bundle the JS code from Apache-2.0-licensed [dictate-button](https://www.npmjs.com/package/dictate-button) library to the `assets/js` folder this way:
 
-```
-pnpm install
-pnpm run build
-```
+`pnpm install`
+`pnpm run build`
 
 The source code of the dictate-button library is available on [GitHub](https://github.com/dictate-button/dictate-button).
 
 == Changelog ==
+
+= 1.0.2 =
+* chore: Trying to get used to WordPress.org SVN plugin deployment.
+
+= 1.0.1 =
+* docs: Fixed code block formatting in the readme.
 
 = 1.0.0 =
 * Initial release

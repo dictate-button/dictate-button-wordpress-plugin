@@ -5,7 +5,7 @@ Tags: voice input, speech-to-text, transcription, dictation, dictate-button
 Requires at least: 5.0
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 License: Apache-2.0
 License URI: https://www.apache.org/licenses/LICENSE-2.0
 
@@ -96,6 +96,10 @@ We locally bundle the JS code from Apache-2.0-licensed [dictate-button](https://
 The source code of the dictate-button library is available on [GitHub](https://github.com/dictate-button/dictate-button).
 
 == Changelog ==
+
+= 1.2.0 =
+* dictate-button library update to 1.9.0: Simplified script installation. Updated internal dependencies.
+No visible changes for you.
 
 = 1.1.0 =
 * dictate-button library update to 1.6.0: Added support for the long press flow.

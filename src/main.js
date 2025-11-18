@@ -1,3 +1,2 @@
-// Import dictate-button component and the exclusive injector script.
-import "dictate-button";
+// Import the exclusive injector script.
 import "dictate-button/inject-exclusive";

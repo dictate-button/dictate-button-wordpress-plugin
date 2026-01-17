@@ -3,7 +3,7 @@
  * Plugin Name: Dictate Button
  * Description: Adds speech-to-text dictation functionality to WordPress forms via dictate-button.io.
  * Tags: voice input, speech-to-text, transcription, dictation, dictate-button
- * Version: 1.2.0
+ * Version: 1.3.0
  * Author: Dictate Button
  * Author URI: https://dictate-button.io/
  * Text Domain: dictate-button
@@ -34,6 +34,9 @@ class Dictate_Button {
 		// Enqueue scripts and styles.
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
+		// End-of-life notice.
+		add_action( 'admin_notices', array( $this, 'eol_notice' ) );
+
 		// Add dictate button to comment forms if enabled.
 		if ( Dictate_Button_Settings::get_option( 'comments' ) === 'on' ) {
 			add_filter( 'comment_form_defaults', array( $this, 'add_dictate_button_to_comment_form' ) );
@@ -49,6 +52,22 @@ class Dictate_Button {
 		if ( Dictate_Button_Settings::get_option( 'contact_form_7' ) === 'on' ) {
 			add_filter( 'wpcf7_form_elements', array( $this, 'add_dictate_button_to_cf7' ), 10, 1 );
 		}
+	}
+
+	public function eol_notice() {
+		if ( ! is_admin() ) {
+				return;
+		}
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+				return;
+		}
+
+		echo '<div class="notice notice-error">';
+		echo '<p><strong>This plugin is no longer supported.</strong><br>';
+		echo 'The external API it depends on is being changed or discontinued and the plugin will stop working. ';
+		echo 'Please remove this plugin. Sorry for the inconvenience.</p>';
+		echo '</div>';
 	}
 
 	/**

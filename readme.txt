@@ -5,13 +5,14 @@ Tags: voice input, speech-to-text, transcription, dictation, dictate-button
 Requires at least: 5.0
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 1.2.0
+Stable tag: 1.3.0
 License: Apache-2.0
 License URI: https://www.apache.org/licenses/LICENSE-2.0
 
 Adds speech-to-text dictation functionality to WordPress forms via dictate-button.io, making your site more accessible with voice input capabilities.
 
 == Description ==
+⚠️ This plugin is no longer supported and will stop working due to API changes.
 
 The Dictate Button plugin enables speech-to-text functionality for various form types on your site by adding a dictate button which performs the transcription via the dictate-button.io service. 
 It allows users to dictate text rather than type it, making your site more accessible and user-friendly.

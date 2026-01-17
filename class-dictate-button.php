@@ -64,9 +64,9 @@ class Dictate_Button {
 		}
 
 		echo '<div class="notice notice-error">';
-		echo '<p><strong>This plugin is no longer supported.</strong><br>';
+		echo '<p><strong>The Dictate Button plugin is no longer supported.</strong><br>';
 		echo 'The external API it depends on is being changed or discontinued and the plugin will stop working. ';
-		echo 'Please remove this plugin. Sorry for the inconvenience.</p>';
+		echo 'Please remove this plugin from the <a href="' . esc_url( admin_url( 'plugins.php' ) ) . '">plugins page</a>. Sorry for the inconvenience :(</p>';
 		echo '</div>';
 	}
 
